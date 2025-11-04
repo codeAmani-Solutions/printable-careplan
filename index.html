@@ -36,10 +36,8 @@
             text-align: center;
         }
         
-        body > p {
-            text-align: center;
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
+        body > p { /* This was the subtitle, which is now gone */
+            display: none;
         }
 
         h2 {
@@ -78,6 +76,15 @@
             break-inside: avoid-page;
         }
 
+        footer {
+            text-align: center;
+            font-weight: 600;
+            font-size: 1rem;
+            border-top: 1px solid #ccc;
+            padding-top: 0.5rem;
+            margin-top: 1rem;
+            grid-column: 1 / -1; /* Span both columns */
+        }
 
         /* Styles for the print button */
         .print-button {
@@ -119,6 +126,7 @@
             h1 { font-size: 1.8rem; }
             h2 { font-size: 1.3rem; }
             h3 { font-size: 0.95rem; }
+            footer { font-size: 0.9rem; }
         }
     </style>
 </head>
@@ -130,8 +138,7 @@
     </button>
 
     <h1>Kay's Care Plan</h1>
-    <p>A resource for consistent, person-centered support.</p>
-
+    
     <!-- Kay's Photo -->
     <div style="text-align: center; margin-bottom: 0.5rem;">
         <img src="assets/IMG_5285.JPG"
@@ -143,7 +150,7 @@
             <!-- About Kay -->
             <h2>About Kay</h2>
             <p>
-                Kay is a 74 year old female, who lives in Doctor Philips with her supportive husband Bob and their fur baby Missy.
+                Kay is a female in her 70s, who lives in Doctor Philips with her supportive husband Bob and their fur baby Missy.
             </p>
             <p>
                 She is vibrant, expressive, and able to make her needs known.
@@ -186,7 +193,7 @@
             <h3>Key Contacts:</h3>
             <ul>
                 <li><strong>Bob (Husband):</strong> (407) 697-8576</li>
-                <li><strong>Terry (RN):</strong> (781) 460-8556</li>
+                <li><strong>Terry (RN):</strong> (781) 460-8856</li>
             </ul>
 
             <!-- Ready-to-Go Kit -->
@@ -216,7 +223,7 @@
                 <li>Visiting the Farmers Market</li>
             </ul>
 
-            <h3>Music & Food</h3>
+            <h3>Music</h3>
             <ul>
                 <li><strong>Music:</strong> Kay enjoys music, especially during car rides. Some of her favorite musicians are:
                     <ul>
@@ -225,9 +232,12 @@
                         <li>Louis Armstrong</li>
                     </ul>
                 </li>
-                <li><strong>Food:</strong> Enjoys a variety of soups, salads, and tea (avoid carbonated beverages like soda).</li>
             </ul>
         </div>
+
+        <footer>
+            Looking forward to working with you and being part of the team.
+        </footer>
     </div>
 
 </body>
