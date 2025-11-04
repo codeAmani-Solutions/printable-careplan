@@ -9,55 +9,80 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             margin: 0 auto;
-            padding: 1.5rem; /* Reduced padding */
-            max-width: 750px; /* Slightly reduced max-width */
+            padding: 1rem; /* Reduced padding */
+            max-width: 900px; /* Widened for two columns */
             color: #111;
-            line-height: 1.5; /* Slightly reduced line height */
-            font-size: 0.95rem; /* Slightly smaller base font size */
+            line-height: 1.35; /* Reduced line height */
+            font-size: 0.9rem; /* Reduced base font size */
+        }
+
+        p {
+            margin-top: 0.2rem;
+            margin-bottom: 0.4rem;
         }
 
         h1,
         h2,
         h3 {
-            margin-top: 1.2rem; /* Reduced margin */
-            margin-bottom: 0.4rem; /* Reduced margin */
+            margin-top: 0.8rem; /* Reduced margin */
+            margin-bottom: 0.2rem; /* Reduced margin */
             line-height: 1.1;
         }
 
         h1 {
-            font-size: 2.2rem; /* Reduced font size */
+            font-size: 2rem; /* Reduced font size */
             border-bottom: 2px solid #333;
-            padding-bottom: 8px; /* Reduced padding */
+            padding-bottom: 6px; /* Reduced padding */
+            text-align: center;
+        }
+        
+        body > p {
+            text-align: center;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
         }
 
         h2 {
-            font-size: 1.6rem; /* Reduced font size */
+            font-size: 1.4rem; /* Reduced font size */
             border-bottom: 1px solid #ccc;
-            padding-bottom: 4px; /* Reduced padding */
+            padding-bottom: 3px; /* Reduced padding */
+            break-after: avoid;
         }
 
         h3 {
-            font-size: 1.1rem; /* Reduced font size */
+            font-size: 1rem; /* Reduced font size */
             font-weight: 600;
         }
 
         ul {
-            padding-left: 18px; /* Reduced padding */
-            margin-top: 0.4rem; /* Reduced margin */
+            padding-left: 16px; /* Reduced padding */
+            margin-top: 0.2rem; /* Reduced margin */
         }
 
         li {
-            margin-bottom: 0.4rem; /* Reduced margin */
+            margin-bottom: 0.2rem; /* Reduced margin */
         }
 
         strong {
             font-weight: 600;
         }
 
+        /* Two-column layout */
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .column {
+            break-inside: avoid-page;
+        }
+
+
         /* Styles for the print button */
         .print-button {
             display: block;
-            margin: 0 auto 1.5rem auto; /* Reduced margin */
+            margin: 0 auto 1rem auto; /* Reduced margin */
             padding: 8px 18px; /* Reduced padding */
             font-size: 0.9rem; /* Reduced font size */
             font-weight: 600;
@@ -73,7 +98,7 @@
             background-color: #0056b3;
         }
 
-        /* Hide the button when printing */
+        /* Hide the button and center title when printing */
         @media print {
             .no-print {
                 display: none;
@@ -81,9 +106,19 @@
 
             body {
                 /* Reset margins for printing */
-                margin: 0.5in; /* Reduced print margin */
+                margin: 0.4in; /* Reduced print margin */
                 padding: 0;
+                font-size: 0.85rem; /* Even smaller for print */
+                max-width: 100%;
             }
+
+            .content-wrapper {
+                gap: 1rem; /* Tighter gap for print */
+            }
+
+            h1 { font-size: 1.8rem; }
+            h2 { font-size: 1.3rem; }
+            h3 { font-size: 0.95rem; }
         }
     </style>
 </head>
@@ -98,96 +133,102 @@
     <p>A resource for consistent, person-centered support.</p>
 
     <!-- Kay's Photo -->
-    <div style="text-align: center; margin-bottom: 1rem;">
+    <div style="text-align: center; margin-bottom: 0.5rem;">
         <img src="assets/IMG_5285.JPG"
-            alt="Kay Page" style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%; border: 2px solid #ccc;">
+            alt="Kay Page" style="width: 80px; height: 80px; object-fit: cover; border-radius: 50%; border: 2px solid #ccc;">
     </div>
 
-    <!-- About Kay -->
-    <h2>About Kay</h2>
-    <p>
-        Kay is a 74 year old female, who lives in Doctor Philips with her supportive husband Bob and their fur baby Missy.
-    </p>
-    <p>
-        She is vibrant, expressive, and able to make her needs known.
-    </p>
-    <p>
-        Kay wears her eyeglasses at all times. As Alzheimer's affects her visual perception, she sometimes perceives her surroundings differently. To keep Kay safe, caregivers must hold her hands at all times while walking and point things out.
-    </p>
+    <div class="content-wrapper">
+        <div class="column">
+            <!-- About Kay -->
+            <h2>About Kay</h2>
+            <p>
+                Kay is a 74 year old female, who lives in Doctor Philips with her supportive husband Bob and their fur baby Missy.
+            </p>
+            <p>
+                She is vibrant, expressive, and able to make her needs known.
+            </p>
+            <p>
+                Kay wears her eyeglasses at all times. As Alzheimer's affects her visual perception, she sometimes perceives her surroundings differently. To keep Kay safe, caregivers must hold her hands at all times while walking and point things out.
+            </p>
 
-    <h3>Key Info:</h3>
-    <ul>
-        <li>Has Alzheimer's and can portray dementia-related behaviors, which include and not limited to:
+            <h3>Key Info:</h3>
             <ul>
-                <li>Behaviors can include anxiety, agitation, confusion, or repeatedly asking for her husband Bob or to go home.</li>
-                <li>She is usually easy to redirect through reassurance.</li>
+                <li>Has Alzheimer's and can portray dementia-related behaviors, which include and not limited to:
+                    <ul>
+                        <li>Behaviors can include anxiety, agitation, confusion, or repeatedly asking for her husband Bob or to go home.</li>
+                        <li>She is usually easy to redirect through reassurance.</li>
+                    </ul>
+                </li>
             </ul>
-        </li>
-    </ul>
 
-    <!-- Key Support Strategies -->
-    <h2>Key Support Strategies</h2>
-    <ul>
-        <li><strong>Bathing & Dressing:</strong> Kay appreciates assistance with choosing outfits and dressing for the day. She loves to look her best!</li>
-        <li><strong>Bathroom Assistance:</strong> She is able to make her needs known but benefits from reminders and assistance locating the toilet in unfamiliar places.</li>
-        <li><strong>Hydration:</strong> Caregiver(s) are encouraged to kindly offer fluids especially water during car rides and walks to ensure Kay remains hydrated.</li>
-        <li><strong>Restaurant Support:</strong> Kay cannot read restaurant menus. Caregivers pick healthy options from the menu.
+            <!-- Key Support Strategies -->
+            <h2>Key Support Strategies</h2>
             <ul>
-                <li>She loves a variety of soups, salads, and tea (avoid carbonated beverages like soda).</li>
-                <li>Caregivers should assist Kay by reading options or pointing them out.</li>
+                <li><strong>Bathing & Dressing:</strong> Kay appreciates assistance with choosing outfits and dressing for the day. She loves to look her best!</li>
+                <li><strong>Bathroom Assistance:</strong> She is able to make her needs known but benefits from reminders and assistance locating the toilet in unfamiliar places.</li>
+                <li><strong>Hydration:</strong> Caregiver(s) are encouraged to kindly offer fluids especially water during car rides and walks to ensure Kay remains hydrated.</li>
+                <li><strong>Restaurant Support:</strong> Kay cannot read restaurant menus. Caregivers pick healthy options from the menu.
+                    <ul>
+                        <li>She loves a variety of soups, salads, and tea (avoid carbonated beverages like soda).</li>
+                        <li>Caregivers should assist Kay by reading options or pointing them out.</li>
+                    </ul>
+                </li>
             </ul>
-        </li>
-    </ul>
-
-    <!-- Support System -->
-    <h2>Support System</h2>
-    <p>
-        Kay has an RN friend who knows her very well and she is available via phone with any questions or for support.
-    </p>
-    <h3>Key Contacts:</h3>
-    <ul>
-        <li><strong>Bob (Husband):</strong> (407) 697-8576</li>
-        <li><strong>Terry (RN):</strong> (781) 460-8856</li>
-    </ul>
-
-    <!-- Ready-to-Go Kit -->
-    <h2>Ready-to-Go Kit</h2>
-    <p>Items carried to ensure Kay is always comfortable:</p>
-    <ul>
-        <li>Hair brush (Kay loves her hair kept neat!)</li>
-        <li>Dental Floss</li>
-        <li>Hat (for sunny days)</li>
-        <li>Sun block</li>
-        <li>Umbrella</li>
-        <li>Light jacket (for chilly days)</li>
-    </ul>
-
-    <!-- Favorites & Preferences -->
-    <h2>Favorites & Preferences</h2>
-    
-    <h3>Favorite Activities</h3>
-    <ul>
-        <li>Walking at the mall</li>
-        <li>Nature walks at the trail
+        </div>
+        
+        <div class="column">
+            <!-- Support System -->
+            <h2>Support System</h2>
+            <p>
+                Kay has an RN friend who knows her very well and she is available via phone with any questions or for support.
+            </p>
+            <h3>Key Contacts:</h3>
             <ul>
-                <li>Note: Kay is a great walker and can enjoy 2-5 miles with breaks.</li>
+                <li><strong>Bob (Husband):</strong> (407) 697-8576</li>
+                <li><strong>Terry (RN):</strong> (781) 460-8556</li>
             </ul>
-        </li>
-        <li>Shopping & excursions</li>
-        <li>Visiting the Farmers Market</li>
-    </ul>
 
-    <h3>Music & Food</h3>
-    <ul>
-        <li><strong>Music:</strong> Kay enjoys music, especially during car rides. Some of her favorite musicians are:
+            <!-- Ready-to-Go Kit -->
+            <h2>Ready-to-Go Kit</h2>
+            <p>Items carried to ensure Kay is always comfortable:</p>
             <ul>
-                <li>Elvis Presley</li>
-                <li>Doris Day</li>
-                <li>Louis Armstrong</li>
+                <li>Hair brush (Kay loves her hair kept neat!)</li>
+                <li>Dental Floss</li>
+                <li>Hat (for sunny days)</li>
+                <li>Sun block</li>
+                <li>Umbrella</li>
+                <li>Light jacket (for chilly days)</li>
             </ul>
-        </li>
-        <li><strong>Food:</strong> Enjoys a variety of soups, salads, and tea (avoid carbonated beverages like soda).</li>
-    </ul>
+
+            <!-- Favorites & Preferences -->
+            <h2>Favorites & Preferences</h2>
+            
+            <h3>Favorite Activities</h3>
+            <ul>
+                <li>Walking at the mall</li>
+                <li>Nature walks at the trail
+                    <ul>
+                        <li>Note: Kay is a great walker and can enjoy 2-5 miles with breaks.</li>
+                    </ul>
+                </li>
+                <li>Shopping & excursions</li>
+                <li>Visiting the Farmers Market</li>
+            </ul>
+
+            <h3>Music & Food</h3>
+            <ul>
+                <li><strong>Music:</strong> Kay enjoys music, especially during car rides. Some of her favorite musicians are:
+                    <ul>
+                        <li>Elvis Presley</li>
+                        <li>Doris Day</li>
+                        <li>Louis Armstrong</li>
+                    </ul>
+                </li>
+                <li><strong>Food:</strong> Enjoys a variety of soups, salads, and tea (avoid carbonated beverages like soda).</li>
+            </ul>
+        </div>
+    </div>
 
 </body>
 
